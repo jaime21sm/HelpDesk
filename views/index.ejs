@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+<div class="hero p-5 mb-4 bg-white rounded-3 shadow-sm text-center">
+  <img src="/images/soporte.svg" alt="Soporte técnico" class="img-fluid rounded mb-4" style="max-height:280px">
+  <h1 class="display-5 fw-bold">Soporte Técnico</h1>
+  <p class="lead col-lg-8 mx-auto">
+    El departamento de sistemas atiende las fallas técnicas de la institución.
+    Si algo no funciona (un proyector, un computador, la red), repórtalo aquí y
+    el equipo de soporte lo resolverá lo antes posible.
+  </p>
+  <a href="/reportar" class="btn btn-success btn-lg px-5">Reportar una falla</a>
+</div>
+
+<div class="row g-4 text-center">
+  <div class="col-md-4">
+    <div class="card feature-card h-100 border-0 shadow-sm p-3">
+      <div class="mx-auto mb-3 feature-icon">1</div>
+      <h5>Reporta</h5>
+      <p class="text-muted mb-0">Llena el formulario con tu nombre, el aula y el problema.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card feature-card h-100 border-0 shadow-sm p-3">
+      <div class="mx-auto mb-3 feature-icon">2</div>
+      <h5>Atendemos</h5>
+      <p class="text-muted mb-0">El equipo de soporte ve tu reporte en el panel de tickets.</p>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card feature-card h-100 border-0 shadow-sm p-3">
+      <div class="mx-auto mb-3 feature-icon">3</div>
+      <h5>Resuelto</h5>
+      <p class="text-muted mb-0">Cuando se repara la falla, el ticket se marca como resuelto.</p>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>
+

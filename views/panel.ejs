@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Panel de Tickets</h2>
+  <span class="badge bg-success fs-6">Fallas registradas: <%= mensajes.length %></span>
+</div>
+
+<% if (mensajes.length === 0) { %>
+  <div class="alert alert-success text-center" role="alert">
+    ¡Todo funciona correctamente! No hay tickets pendientes.
+  </div>
+<% } else { %>
+  <div class="table-responsive shadow-sm">
+    <table class="table table-striped table-hover align-middle bg-white mb-0 tabla-tickets">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Solicitante</th>
+          <th>Aula / Ubicación</th>
+          <th>Descripción</th>
+          <th>Fecha</th>
+          <th class="text-center">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% mensajes.forEach(t => { %>
+          <tr>
+            <td><%= t.id %></td>
+            <td><%= t.solicitante %></td>
+            <td><span class="badge text-bg-secondary"><%= t.ubicacion %></span></td>
+            <td class="desc"><%= t.descripcion %></td>
+            <td><%= t.fecha %></td>
+            <td class="text-center">
+              <form action="/panel/resolver" method="POST"
+                    onsubmit="return confirm('¿Marcar este ticket como resuelto?')">
+                <input type="hidden" name="id" value="<%= t.id %>">
+                <button type="submit" class="btn btn-success btn-sm">Resuelto</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+<% } %>
+<%- include('partials/footer') %>

@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <h2 class="mb-3">Reportar Falla</h2>
+
+    <% if (exito) { %>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        ¡Reporte guardado correctamente! El equipo de soporte lo atenderá pronto.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+      </div>
+    <% } %>
+    <% if (error) { %>
+      <div class="alert alert-danger" role="alert">Todos los campos son obligatorios.</div>
+    <% } %>
+
+    <form action="/reportar" method="POST" class="card form-card shadow-sm">
+      <div class="card-header">Datos de la falla</div>
+      <div class="card-body">
+      <div class="mb-3">
+        <label for="solicitante" class="form-label">Nombre del solicitante</label>
+        <input type="text" class="form-control" id="solicitante" name="solicitante" required>
+      </div>
+      <div class="mb-3">
+        <label for="ubicacion" class="form-label">Aula / Ubicación</label>
+        <input type="text" class="form-control" id="ubicacion" name="ubicacion" placeholder="Ej: Oval 2" required>
+      </div>
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción del problema</label>
+        <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-success w-100">Enviar reporte</button>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('partials/footer') %>
